@@ -1,4 +1,4 @@
-package com.example.subscription
+package com.example.subscription.model
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
