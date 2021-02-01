@@ -9,5 +9,7 @@ data class Product(
         @Id @GeneratedValue
         val id: Long? = null,
         val name: String,
-        val price: Double
+        val duration: Int,
+        val price: Double,
+        val tax: Double
 )
