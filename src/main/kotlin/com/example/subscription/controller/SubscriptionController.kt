@@ -26,8 +26,14 @@ class SubscriptionController(private val service: SubscriptionService) {
             }.orElse(ResponseEntity.notFound().build())
 
     @PutMapping("/unpause/{id}")
-    fun unpause(@RequestBody id: Long): ResponseEntity<Subscription> =
+    fun unpause(@PathVariable id: Long): ResponseEntity<Subscription> =
             service.changeStatus(id, SubscriptionStatus.ACTIVE).map {
+                ResponseEntity.ok(it)
+            }.orElse(ResponseEntity.notFound().build())
+
+    @PutMapping("/cancel/{id}")
+    fun cancel(@PathVariable id: Long): ResponseEntity<Subscription> =
+            service.changeStatus(id, SubscriptionStatus.CANCELED).map {
                 ResponseEntity.ok(it)
             }.orElse(ResponseEntity.notFound().build())
 
