@@ -17,6 +17,7 @@ class ProductController(private val productService: ProductService) {
     @GetMapping
     fun getAll(): List<Product> = productService.findAll()
 
+    @GetMapping("/{id}")
     fun getById(@PathVariable id: Long): ResponseEntity<Product> =
             productService.getById(id).map {
                 ResponseEntity.ok(it)

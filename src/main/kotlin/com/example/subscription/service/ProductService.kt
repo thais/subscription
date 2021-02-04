@@ -11,7 +11,7 @@ interface ProductService {
 
     fun getById(id: Long): Optional<Product>
 
-    fun update(id: Long, account: Product) : Optional<Product>
+    fun update(id: Long, product: Product) : Optional<Product>
 
     fun delete(id: Long)
 }

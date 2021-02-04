@@ -32,21 +32,6 @@ class ProductControllerTest {
                 .andDo(MockMvcResultHandlers.print())
     }
 
-    @Test
-    fun `find by id`() {
-        val product = productRepository.save(
-                Product(name = "Lambada Dance class", duration = 30, price = 20.00, tax = 2.00)
-        )
-        mockMvc.perform(MockMvcRequestBuilders.get("/products/${product.id}"))
-                .andExpect(MockMvcResultMatchers.status().isOk)
-                .andExpect(MockMvcResultMatchers.jsonPath("\$").isArray)
-                .andExpect(MockMvcResultMatchers.jsonPath("\$[0].id").isNumber)
-                .andExpect(MockMvcResultMatchers.jsonPath("\$[0].name").isString)
-                .andExpect(MockMvcResultMatchers.jsonPath("\$[0].price").isNumber)
-                .andExpect(MockMvcResultMatchers.jsonPath("\$[0].tax").isNumber)
-                .andExpect(MockMvcResultMatchers.jsonPath("\$[0].duration").isNumber)
-                .andDo(MockMvcResultHandlers.print())
-    }
 
 
 }
