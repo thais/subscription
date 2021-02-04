@@ -1,5 +1,6 @@
 package com.example.subscription.model
 
+import java.time.LocalDate
 import javax.persistence.*
 
 
@@ -10,4 +11,10 @@ data class Subscription(
         @ManyToOne(fetch = FetchType.EAGER)
         @JoinColumn(name = "product_id")
         val product: Product,
-        val name: String)
+        val name: String,
+        val start: LocalDate,
+        val duration: Int,
+        val status: SubscriptionStatus,
+        val expiration: LocalDate)
+
+enum class SubscriptionStatus { ACTIVE, PAUSED, CANCELED }

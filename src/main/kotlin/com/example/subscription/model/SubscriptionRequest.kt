@@ -1,3 +1,4 @@
 package com.example.subscription.model
 
-class SubsRequest (val name: String, val id: Long)
+class SubscriptionRequest (val name: String, val id: Long, val start: String, val duration: Int)
+
